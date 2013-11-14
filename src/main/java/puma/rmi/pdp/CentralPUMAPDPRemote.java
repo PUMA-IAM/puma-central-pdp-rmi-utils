@@ -1,4 +1,4 @@
-package puma.centralpdp.rmi;
+package puma.rmi.pdp;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
