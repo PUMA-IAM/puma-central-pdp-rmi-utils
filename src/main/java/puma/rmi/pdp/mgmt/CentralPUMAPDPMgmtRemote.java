@@ -33,4 +33,17 @@ public interface CentralPUMAPDPMgmtRemote extends Remote {
 	 */
 	public void reload() throws RemoteException;
 
+	/**
+	 * Loads the given policy into the Central PUMA PDP policy for the given tenant identifier.
+	 * 
+	 * Note that the tenant must be an existing tenant and that the policy will apply to all 
+	 * subjects of that tenant once it is deployed
+	 * 
+	 * Note also that this operation will replace any existing policy fot the given tenant
+	 * 
+	 * @param tenantIdentifier The identifier (parseable to Long) that identifies the tenant. A XACML policy will be created which incorporates the given policy.  
+	 * @param policy This will be the only policy, besides the application and central policy, which the tenant subjects will apply to.
+	 */
+	public void loadTenantPolicy(String tenantIdentifier, String policy) throws RemoteException;
+
 }
