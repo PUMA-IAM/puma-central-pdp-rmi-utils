@@ -2,6 +2,7 @@ package puma.rmi.pdp.mgmt;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.List;
 
 public interface CentralPUMAPDPMgmtRemote extends Remote {
 	
@@ -45,5 +46,19 @@ public interface CentralPUMAPDPMgmtRemote extends Remote {
 	 * @param policy This will be the only policy, besides the application and central policy, which the tenant subjects will apply to.
 	 */
 	public void loadTenantPolicy(String tenantIdentifier, String policy) throws RemoteException;
+	
+	/**
+	 * @see {@link CentralPUMAPDPMgmtRemote.loadTenantPolicy}
+	 * @param tenantIdentifiers
+	 * @param policies
+	 * @throws RemoteException
+	 */
+	public void submitTenantPolicies(List<String> tenantIdentifiers, List<String> policies) throws RemoteException;
 
+	/**
+	 * 
+	 * @return List of all identifiers of tenants which have deployed policies
+	 * @throws RemoteException
+	 */
+	public List<String> getIdentifiers() throws RemoteException;
 }
