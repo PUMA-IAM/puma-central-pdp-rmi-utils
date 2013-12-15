@@ -48,14 +48,6 @@ public interface CentralPUMAPDPMgmtRemote extends Remote {
 	public void loadTenantPolicy(String tenantIdentifier, String policy) throws RemoteException;
 	
 	/**
-	 * @see {@link CentralPUMAPDPMgmtRemote.loadTenantPolicy}
-	 * @param tenantIdentifiers
-	 * @param policies
-	 * @throws RemoteException
-	 */
-	public void submitTenantPolicies(List<String> tenantIdentifiers, List<String> policies) throws RemoteException;
-
-	/**
 	 * 
 	 * @return List of all identifiers of tenants which have deployed policies
 	 * @throws RemoteException
