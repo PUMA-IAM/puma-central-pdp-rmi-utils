@@ -4,7 +4,9 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
-public interface CentralPUMAPDPMgmtRemote extends Remote {
+import puma.util.timing.MetricsProvider;
+
+public interface CentralPUMAPDPMgmtRemote extends Remote, MetricsProvider {
 	
 	/**
 	 * Returns the status of this Central PUMA PDP.
