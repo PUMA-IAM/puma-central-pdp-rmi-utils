@@ -38,5 +38,12 @@ public interface ApplicationPDPMgmtRemote extends Remote {
 	 * policies in the PAP.
 	 */
 	public void reload() throws RemoteException;
+	
+	/**
+	 * Enable access for the application PDP to a remote database. The database location is initialized at the server hosting the application PDP using the puma.attr.db.connection parameter.
+	 * @param enabled True if the application PDP may access a remote database, false otherwise
+	 * @throws RemoteException
+	 */
+	public void setRemoteDBAccess(Boolean enabled) throws RemoteException;
 
 }
