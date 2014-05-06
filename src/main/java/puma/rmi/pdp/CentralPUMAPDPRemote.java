@@ -21,5 +21,7 @@ public interface CentralPUMAPDPRemote extends Remote {
 	 */
 	public ResponseCtx evaluate(RequestType request,
 			List<CachedAttribute> cachedAttributes) throws RemoteException;
+	
+	public boolean ping() throws RemoteException;
 
 }
