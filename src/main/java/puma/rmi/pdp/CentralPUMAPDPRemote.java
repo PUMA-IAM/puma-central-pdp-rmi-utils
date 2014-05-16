@@ -4,9 +4,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
-import oasis.names.tc.xacml._2_0.context.schema.os.RequestType;
-
-import com.sun.xacml.ctx.CachedAttribute;
+import com.sun.xacml.ctx.EncodedCachedAttribute;
 import com.sun.xacml.ctx.ResponseCtx;
 
 public interface CentralPUMAPDPRemote extends Remote {
@@ -19,8 +17,7 @@ public interface CentralPUMAPDPRemote extends Remote {
 	 * @return
 	 * @throws RemoteException
 	 */
-	public ResponseCtx evaluate(RequestType request,
-			List<CachedAttribute> cachedAttributes) throws RemoteException;
+	public ResponseCtx evaluate(List<EncodedCachedAttribute> encodedCachedAttributes) throws RemoteException;
 	
 	public boolean ping() throws RemoteException;
 
