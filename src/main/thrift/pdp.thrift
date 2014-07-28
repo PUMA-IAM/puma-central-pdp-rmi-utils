@@ -9,6 +9,7 @@ enum DataTypeP {
   INTEGER = 1;
   DATETIME = 2;
   BOOLEAN = 3;
+  DOUBLE = 4;
 }
 
 enum ResponseTypeP {
@@ -25,6 +26,7 @@ struct AttributeValueP {
   4: optional list<i32> intValues,
   5: optional list<i64> datetimeValues,
   6: optional list<bool> booleanValues,
+  7: optional list<double> doubleValues,
 }
 
 service RemotePDPService {
