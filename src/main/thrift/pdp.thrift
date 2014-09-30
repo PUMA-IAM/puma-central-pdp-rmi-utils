@@ -19,14 +19,28 @@ enum ResponseTypeP {
   INDETERMINATE = 3;
 }
 
+enum ObjectTypeP {
+  SUBJECT = 0;
+  ACTION = 1;
+  RESOURCE = 2;
+  ENVIRONMENT = 3;
+}
+
+enum MultiplicityP {
+  GROUPED = 0;
+  ATOMIC = 1;
+}
+
 struct AttributeValueP {
   1: DataTypeP dataType,
-  2: string id,
-  3: optional list<string> stringValues,
-  4: optional list<i32> intValues,
-  5: optional list<i64> datetimeValues,
-  6: optional list<bool> booleanValues,
-  7: optional list<double> doubleValues,
+  2: ObjectTypeP objectType,
+  3: MultiplicityP multiplicity,
+  4: string id,
+  5: optional list<string> stringValues,
+  6: optional list<i32> intValues,
+  7: optional list<i64> datetimeValues,
+  8: optional list<bool> booleanValues,
+  9: optional list<double> doubleValues,
 }
 
 service RemotePDPService {

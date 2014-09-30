@@ -36,12 +36,14 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
   private static final org.apache.thrift.protocol.TStruct STRUCT_DESC = new org.apache.thrift.protocol.TStruct("AttributeValueP");
 
   private static final org.apache.thrift.protocol.TField DATA_TYPE_FIELD_DESC = new org.apache.thrift.protocol.TField("dataType", org.apache.thrift.protocol.TType.I32, (short)1);
-  private static final org.apache.thrift.protocol.TField ID_FIELD_DESC = new org.apache.thrift.protocol.TField("id", org.apache.thrift.protocol.TType.STRING, (short)2);
-  private static final org.apache.thrift.protocol.TField STRING_VALUES_FIELD_DESC = new org.apache.thrift.protocol.TField("stringValues", org.apache.thrift.protocol.TType.LIST, (short)3);
-  private static final org.apache.thrift.protocol.TField INT_VALUES_FIELD_DESC = new org.apache.thrift.protocol.TField("intValues", org.apache.thrift.protocol.TType.LIST, (short)4);
-  private static final org.apache.thrift.protocol.TField DATETIME_VALUES_FIELD_DESC = new org.apache.thrift.protocol.TField("datetimeValues", org.apache.thrift.protocol.TType.LIST, (short)5);
-  private static final org.apache.thrift.protocol.TField BOOLEAN_VALUES_FIELD_DESC = new org.apache.thrift.protocol.TField("booleanValues", org.apache.thrift.protocol.TType.LIST, (short)6);
-  private static final org.apache.thrift.protocol.TField DOUBLE_VALUES_FIELD_DESC = new org.apache.thrift.protocol.TField("doubleValues", org.apache.thrift.protocol.TType.LIST, (short)7);
+  private static final org.apache.thrift.protocol.TField OBJECT_TYPE_FIELD_DESC = new org.apache.thrift.protocol.TField("objectType", org.apache.thrift.protocol.TType.I32, (short)2);
+  private static final org.apache.thrift.protocol.TField MULTIPLICITY_FIELD_DESC = new org.apache.thrift.protocol.TField("multiplicity", org.apache.thrift.protocol.TType.I32, (short)3);
+  private static final org.apache.thrift.protocol.TField ID_FIELD_DESC = new org.apache.thrift.protocol.TField("id", org.apache.thrift.protocol.TType.STRING, (short)4);
+  private static final org.apache.thrift.protocol.TField STRING_VALUES_FIELD_DESC = new org.apache.thrift.protocol.TField("stringValues", org.apache.thrift.protocol.TType.LIST, (short)5);
+  private static final org.apache.thrift.protocol.TField INT_VALUES_FIELD_DESC = new org.apache.thrift.protocol.TField("intValues", org.apache.thrift.protocol.TType.LIST, (short)6);
+  private static final org.apache.thrift.protocol.TField DATETIME_VALUES_FIELD_DESC = new org.apache.thrift.protocol.TField("datetimeValues", org.apache.thrift.protocol.TType.LIST, (short)7);
+  private static final org.apache.thrift.protocol.TField BOOLEAN_VALUES_FIELD_DESC = new org.apache.thrift.protocol.TField("booleanValues", org.apache.thrift.protocol.TType.LIST, (short)8);
+  private static final org.apache.thrift.protocol.TField DOUBLE_VALUES_FIELD_DESC = new org.apache.thrift.protocol.TField("doubleValues", org.apache.thrift.protocol.TType.LIST, (short)9);
 
   private static final Map<Class<? extends IScheme>, SchemeFactory> schemes = new HashMap<Class<? extends IScheme>, SchemeFactory>();
   static {
@@ -54,6 +56,16 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
    * @see DataTypeP
    */
   public DataTypeP dataType; // required
+  /**
+   * 
+   * @see ObjectTypeP
+   */
+  public ObjectTypeP objectType; // required
+  /**
+   * 
+   * @see MultiplicityP
+   */
+  public MultiplicityP multiplicity; // required
   public String id; // required
   public List<String> stringValues; // optional
   public List<Integer> intValues; // optional
@@ -68,12 +80,22 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
      * @see DataTypeP
      */
     DATA_TYPE((short)1, "dataType"),
-    ID((short)2, "id"),
-    STRING_VALUES((short)3, "stringValues"),
-    INT_VALUES((short)4, "intValues"),
-    DATETIME_VALUES((short)5, "datetimeValues"),
-    BOOLEAN_VALUES((short)6, "booleanValues"),
-    DOUBLE_VALUES((short)7, "doubleValues");
+    /**
+     * 
+     * @see ObjectTypeP
+     */
+    OBJECT_TYPE((short)2, "objectType"),
+    /**
+     * 
+     * @see MultiplicityP
+     */
+    MULTIPLICITY((short)3, "multiplicity"),
+    ID((short)4, "id"),
+    STRING_VALUES((short)5, "stringValues"),
+    INT_VALUES((short)6, "intValues"),
+    DATETIME_VALUES((short)7, "datetimeValues"),
+    BOOLEAN_VALUES((short)8, "booleanValues"),
+    DOUBLE_VALUES((short)9, "doubleValues");
 
     private static final Map<String, _Fields> byName = new HashMap<String, _Fields>();
 
@@ -90,17 +112,21 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
       switch(fieldId) {
         case 1: // DATA_TYPE
           return DATA_TYPE;
-        case 2: // ID
+        case 2: // OBJECT_TYPE
+          return OBJECT_TYPE;
+        case 3: // MULTIPLICITY
+          return MULTIPLICITY;
+        case 4: // ID
           return ID;
-        case 3: // STRING_VALUES
+        case 5: // STRING_VALUES
           return STRING_VALUES;
-        case 4: // INT_VALUES
+        case 6: // INT_VALUES
           return INT_VALUES;
-        case 5: // DATETIME_VALUES
+        case 7: // DATETIME_VALUES
           return DATETIME_VALUES;
-        case 6: // BOOLEAN_VALUES
+        case 8: // BOOLEAN_VALUES
           return BOOLEAN_VALUES;
-        case 7: // DOUBLE_VALUES
+        case 9: // DOUBLE_VALUES
           return DOUBLE_VALUES;
         default:
           return null;
@@ -148,6 +174,10 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
     Map<_Fields, org.apache.thrift.meta_data.FieldMetaData> tmpMap = new EnumMap<_Fields, org.apache.thrift.meta_data.FieldMetaData>(_Fields.class);
     tmpMap.put(_Fields.DATA_TYPE, new org.apache.thrift.meta_data.FieldMetaData("dataType", org.apache.thrift.TFieldRequirementType.DEFAULT, 
         new org.apache.thrift.meta_data.EnumMetaData(org.apache.thrift.protocol.TType.ENUM, DataTypeP.class)));
+    tmpMap.put(_Fields.OBJECT_TYPE, new org.apache.thrift.meta_data.FieldMetaData("objectType", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+        new org.apache.thrift.meta_data.EnumMetaData(org.apache.thrift.protocol.TType.ENUM, ObjectTypeP.class)));
+    tmpMap.put(_Fields.MULTIPLICITY, new org.apache.thrift.meta_data.FieldMetaData("multiplicity", org.apache.thrift.TFieldRequirementType.DEFAULT, 
+        new org.apache.thrift.meta_data.EnumMetaData(org.apache.thrift.protocol.TType.ENUM, MultiplicityP.class)));
     tmpMap.put(_Fields.ID, new org.apache.thrift.meta_data.FieldMetaData("id", org.apache.thrift.TFieldRequirementType.DEFAULT, 
         new org.apache.thrift.meta_data.FieldValueMetaData(org.apache.thrift.protocol.TType.STRING)));
     tmpMap.put(_Fields.STRING_VALUES, new org.apache.thrift.meta_data.FieldMetaData("stringValues", org.apache.thrift.TFieldRequirementType.OPTIONAL, 
@@ -174,10 +204,14 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
 
   public AttributeValueP(
     DataTypeP dataType,
+    ObjectTypeP objectType,
+    MultiplicityP multiplicity,
     String id)
   {
     this();
     this.dataType = dataType;
+    this.objectType = objectType;
+    this.multiplicity = multiplicity;
     this.id = id;
   }
 
@@ -187,6 +221,12 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
   public AttributeValueP(AttributeValueP other) {
     if (other.isSetDataType()) {
       this.dataType = other.dataType;
+    }
+    if (other.isSetObjectType()) {
+      this.objectType = other.objectType;
+    }
+    if (other.isSetMultiplicity()) {
+      this.multiplicity = other.multiplicity;
     }
     if (other.isSetId()) {
       this.id = other.id;
@@ -220,6 +260,8 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
   @Override
   public void clear() {
     this.dataType = null;
+    this.objectType = null;
+    this.multiplicity = null;
     this.id = null;
     this.stringValues = null;
     this.intValues = null;
@@ -257,6 +299,70 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
   public void setDataTypeIsSet(boolean value) {
     if (!value) {
       this.dataType = null;
+    }
+  }
+
+  /**
+   * 
+   * @see ObjectTypeP
+   */
+  public ObjectTypeP getObjectType() {
+    return this.objectType;
+  }
+
+  /**
+   * 
+   * @see ObjectTypeP
+   */
+  public AttributeValueP setObjectType(ObjectTypeP objectType) {
+    this.objectType = objectType;
+    return this;
+  }
+
+  public void unsetObjectType() {
+    this.objectType = null;
+  }
+
+  /** Returns true if field objectType is set (has been assigned a value) and false otherwise */
+  public boolean isSetObjectType() {
+    return this.objectType != null;
+  }
+
+  public void setObjectTypeIsSet(boolean value) {
+    if (!value) {
+      this.objectType = null;
+    }
+  }
+
+  /**
+   * 
+   * @see MultiplicityP
+   */
+  public MultiplicityP getMultiplicity() {
+    return this.multiplicity;
+  }
+
+  /**
+   * 
+   * @see MultiplicityP
+   */
+  public AttributeValueP setMultiplicity(MultiplicityP multiplicity) {
+    this.multiplicity = multiplicity;
+    return this;
+  }
+
+  public void unsetMultiplicity() {
+    this.multiplicity = null;
+  }
+
+  /** Returns true if field multiplicity is set (has been assigned a value) and false otherwise */
+  public boolean isSetMultiplicity() {
+    return this.multiplicity != null;
+  }
+
+  public void setMultiplicityIsSet(boolean value) {
+    if (!value) {
+      this.multiplicity = null;
     }
   }
 
@@ -489,6 +595,22 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
       }
       break;
 
+    case OBJECT_TYPE:
+      if (value == null) {
+        unsetObjectType();
+      } else {
+        setObjectType((ObjectTypeP)value);
+      }
+      break;
+
+    case MULTIPLICITY:
+      if (value == null) {
+        unsetMultiplicity();
+      } else {
+        setMultiplicity((MultiplicityP)value);
+      }
+      break;
+
     case ID:
       if (value == null) {
         unsetId();
@@ -545,6 +667,12 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
     case DATA_TYPE:
       return getDataType();
 
+    case OBJECT_TYPE:
+      return getObjectType();
+
+    case MULTIPLICITY:
+      return getMultiplicity();
+
     case ID:
       return getId();
 
@@ -576,6 +704,10 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
     switch (field) {
     case DATA_TYPE:
       return isSetDataType();
+    case OBJECT_TYPE:
+      return isSetObjectType();
+    case MULTIPLICITY:
+      return isSetMultiplicity();
     case ID:
       return isSetId();
     case STRING_VALUES:
@@ -611,6 +743,24 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
       if (!(this_present_dataType && that_present_dataType))
         return false;
       if (!this.dataType.equals(that.dataType))
+        return false;
+    }
+
+    boolean this_present_objectType = true && this.isSetObjectType();
+    boolean that_present_objectType = true && that.isSetObjectType();
+    if (this_present_objectType || that_present_objectType) {
+      if (!(this_present_objectType && that_present_objectType))
+        return false;
+      if (!this.objectType.equals(that.objectType))
+        return false;
+    }
+
+    boolean this_present_multiplicity = true && this.isSetMultiplicity();
+    boolean that_present_multiplicity = true && that.isSetMultiplicity();
+    if (this_present_multiplicity || that_present_multiplicity) {
+      if (!(this_present_multiplicity && that_present_multiplicity))
+        return false;
+      if (!this.multiplicity.equals(that.multiplicity))
         return false;
     }
 
@@ -690,6 +840,26 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
     }
     if (isSetDataType()) {
       lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.dataType, other.dataType);
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+    }
+    lastComparison = Boolean.valueOf(isSetObjectType()).compareTo(other.isSetObjectType());
+    if (lastComparison != 0) {
+      return lastComparison;
+    }
+    if (isSetObjectType()) {
+      lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.objectType, other.objectType);
+      if (lastComparison != 0) {
+        return lastComparison;
+      }
+    }
+    lastComparison = Boolean.valueOf(isSetMultiplicity()).compareTo(other.isSetMultiplicity());
+    if (lastComparison != 0) {
+      return lastComparison;
+    }
+    if (isSetMultiplicity()) {
+      lastComparison = org.apache.thrift.TBaseHelper.compareTo(this.multiplicity, other.multiplicity);
       if (lastComparison != 0) {
         return lastComparison;
       }
@@ -779,6 +949,22 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
       sb.append("null");
     } else {
       sb.append(this.dataType);
+    }
+    first = false;
+    if (!first) sb.append(", ");
+    sb.append("objectType:");
+    if (this.objectType == null) {
+      sb.append("null");
+    } else {
+      sb.append(this.objectType);
+    }
+    first = false;
+    if (!first) sb.append(", ");
+    sb.append("multiplicity:");
+    if (this.multiplicity == null) {
+      sb.append("null");
+    } else {
+      sb.append(this.multiplicity);
     }
     first = false;
     if (!first) sb.append(", ");
@@ -890,7 +1076,23 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
             }
             break;
-          case 2: // ID
+          case 2: // OBJECT_TYPE
+            if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
+              struct.objectType = ObjectTypeP.findByValue(iprot.readI32());
+              struct.setObjectTypeIsSet(true);
+            } else { 
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+            }
+            break;
+          case 3: // MULTIPLICITY
+            if (schemeField.type == org.apache.thrift.protocol.TType.I32) {
+              struct.multiplicity = MultiplicityP.findByValue(iprot.readI32());
+              struct.setMultiplicityIsSet(true);
+            } else { 
+              org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
+            }
+            break;
+          case 4: // ID
             if (schemeField.type == org.apache.thrift.protocol.TType.STRING) {
               struct.id = iprot.readString();
               struct.setIdIsSet(true);
@@ -898,7 +1100,7 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
             }
             break;
-          case 3: // STRING_VALUES
+          case 5: // STRING_VALUES
             if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
               {
                 org.apache.thrift.protocol.TList _list0 = iprot.readListBegin();
@@ -916,7 +1118,7 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
             }
             break;
-          case 4: // INT_VALUES
+          case 6: // INT_VALUES
             if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
               {
                 org.apache.thrift.protocol.TList _list3 = iprot.readListBegin();
@@ -934,7 +1136,7 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
             }
             break;
-          case 5: // DATETIME_VALUES
+          case 7: // DATETIME_VALUES
             if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
               {
                 org.apache.thrift.protocol.TList _list6 = iprot.readListBegin();
@@ -952,7 +1154,7 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
             }
             break;
-          case 6: // BOOLEAN_VALUES
+          case 8: // BOOLEAN_VALUES
             if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
               {
                 org.apache.thrift.protocol.TList _list9 = iprot.readListBegin();
@@ -970,7 +1172,7 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
               org.apache.thrift.protocol.TProtocolUtil.skip(iprot, schemeField.type);
             }
             break;
-          case 7: // DOUBLE_VALUES
+          case 9: // DOUBLE_VALUES
             if (schemeField.type == org.apache.thrift.protocol.TType.LIST) {
               {
                 org.apache.thrift.protocol.TList _list12 = iprot.readListBegin();
@@ -1006,6 +1208,16 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
       if (struct.dataType != null) {
         oprot.writeFieldBegin(DATA_TYPE_FIELD_DESC);
         oprot.writeI32(struct.dataType.getValue());
+        oprot.writeFieldEnd();
+      }
+      if (struct.objectType != null) {
+        oprot.writeFieldBegin(OBJECT_TYPE_FIELD_DESC);
+        oprot.writeI32(struct.objectType.getValue());
+        oprot.writeFieldEnd();
+      }
+      if (struct.multiplicity != null) {
+        oprot.writeFieldBegin(MULTIPLICITY_FIELD_DESC);
+        oprot.writeI32(struct.multiplicity.getValue());
         oprot.writeFieldEnd();
       }
       if (struct.id != null) {
@@ -1104,27 +1316,39 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
       if (struct.isSetDataType()) {
         optionals.set(0);
       }
-      if (struct.isSetId()) {
+      if (struct.isSetObjectType()) {
         optionals.set(1);
       }
-      if (struct.isSetStringValues()) {
+      if (struct.isSetMultiplicity()) {
         optionals.set(2);
       }
-      if (struct.isSetIntValues()) {
+      if (struct.isSetId()) {
         optionals.set(3);
       }
-      if (struct.isSetDatetimeValues()) {
+      if (struct.isSetStringValues()) {
         optionals.set(4);
       }
-      if (struct.isSetBooleanValues()) {
+      if (struct.isSetIntValues()) {
         optionals.set(5);
       }
-      if (struct.isSetDoubleValues()) {
+      if (struct.isSetDatetimeValues()) {
         optionals.set(6);
       }
-      oprot.writeBitSet(optionals, 7);
+      if (struct.isSetBooleanValues()) {
+        optionals.set(7);
+      }
+      if (struct.isSetDoubleValues()) {
+        optionals.set(8);
+      }
+      oprot.writeBitSet(optionals, 9);
       if (struct.isSetDataType()) {
         oprot.writeI32(struct.dataType.getValue());
+      }
+      if (struct.isSetObjectType()) {
+        oprot.writeI32(struct.objectType.getValue());
+      }
+      if (struct.isSetMultiplicity()) {
+        oprot.writeI32(struct.multiplicity.getValue());
       }
       if (struct.isSetId()) {
         oprot.writeString(struct.id);
@@ -1179,16 +1403,24 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
     @Override
     public void read(org.apache.thrift.protocol.TProtocol prot, AttributeValueP struct) throws org.apache.thrift.TException {
       TTupleProtocol iprot = (TTupleProtocol) prot;
-      BitSet incoming = iprot.readBitSet(7);
+      BitSet incoming = iprot.readBitSet(9);
       if (incoming.get(0)) {
         struct.dataType = DataTypeP.findByValue(iprot.readI32());
         struct.setDataTypeIsSet(true);
       }
       if (incoming.get(1)) {
+        struct.objectType = ObjectTypeP.findByValue(iprot.readI32());
+        struct.setObjectTypeIsSet(true);
+      }
+      if (incoming.get(2)) {
+        struct.multiplicity = MultiplicityP.findByValue(iprot.readI32());
+        struct.setMultiplicityIsSet(true);
+      }
+      if (incoming.get(3)) {
         struct.id = iprot.readString();
         struct.setIdIsSet(true);
       }
-      if (incoming.get(2)) {
+      if (incoming.get(4)) {
         {
           org.apache.thrift.protocol.TList _list25 = new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING, iprot.readI32());
           struct.stringValues = new ArrayList<String>(_list25.size);
@@ -1201,7 +1433,7 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
         }
         struct.setStringValuesIsSet(true);
       }
-      if (incoming.get(3)) {
+      if (incoming.get(5)) {
         {
           org.apache.thrift.protocol.TList _list28 = new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.I32, iprot.readI32());
           struct.intValues = new ArrayList<Integer>(_list28.size);
@@ -1214,7 +1446,7 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
         }
         struct.setIntValuesIsSet(true);
       }
-      if (incoming.get(4)) {
+      if (incoming.get(6)) {
         {
           org.apache.thrift.protocol.TList _list31 = new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.I64, iprot.readI32());
           struct.datetimeValues = new ArrayList<Long>(_list31.size);
@@ -1227,7 +1459,7 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
         }
         struct.setDatetimeValuesIsSet(true);
       }
-      if (incoming.get(5)) {
+      if (incoming.get(7)) {
         {
           org.apache.thrift.protocol.TList _list34 = new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.BOOL, iprot.readI32());
           struct.booleanValues = new ArrayList<Boolean>(_list34.size);
@@ -1240,7 +1472,7 @@ public class AttributeValueP implements org.apache.thrift.TBase<AttributeValueP,
         }
         struct.setBooleanValuesIsSet(true);
       }
-      if (incoming.get(6)) {
+      if (incoming.get(8)) {
         {
           org.apache.thrift.protocol.TList _list37 = new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.DOUBLE, iprot.readI32());
           struct.doubleValues = new ArrayList<Double>(_list37.size);
