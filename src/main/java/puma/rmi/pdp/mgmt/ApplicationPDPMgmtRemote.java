@@ -22,20 +22,20 @@ package puma.rmi.pdp.mgmt;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface ApplicationPDPMgmtRemote extends Remote {
+public interface ApplicationPDPMgmtRemote {
 	
 	/**
 	 * Returns the id of this Application PDP (probably related to the id 
 	 * of this node).
 	 */
-	public String getId() throws RemoteException;
+	public String getId();
 	
 	/**
 	 * Returns the status of this Application PDP.
 	 * 
 	 * @return
 	 */
-	public String getStatus() throws RemoteException;
+	public String getStatus();
 	
 	/**
 	 * Loads the given policy into the application policy.
@@ -45,12 +45,12 @@ public interface ApplicationPDPMgmtRemote extends Remote {
 	 * 
 	 * @param policy
 	 */
-	public void loadApplicationPolicy(String policy) throws RemoteException;
+	public void loadApplicationPolicy(String policy);
 	
 	/**
 	 * Returns the current application policy.
 	 */
-	public String getApplicationPolicy() throws RemoteException;
+	public String getApplicationPolicy();
 	
 	/**
 	 * Reloads the policies in the application policy according to the
@@ -63,6 +63,6 @@ public interface ApplicationPDPMgmtRemote extends Remote {
 	 * @param enabled True if the application PDP may access a remote database, false otherwise
 	 * @throws RemoteException
 	 */
-	public void setRemoteDBAccess(Boolean enabled) throws RemoteException;
+	public void setRemoteDBAccess(Boolean enabled);
 
 }
